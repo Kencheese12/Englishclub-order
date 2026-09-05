@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>注文画面 | 屋台注文システム</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header">
+    <a href="index.html" class="back-link">← トップへ</a>
+    <h1>注文画面</h1>
+  </header>
+
+  <h2 class="section-title">商品を選ぶ</h2>
+  <section class="product-buttons" id="productButtons"></section>
+
+  <h2 class="section-title">注文中の一覧(間違えたらカードをタップで取り消し)</h2>
+  <section class="order-list" id="orderList"></section>
+
+  <script type="module">
+    import { PRODUCTS, addOrder, cancelOrder, watchOrders, renderOrders } from "./common.js";
+
+    const productButtonsEl = document.getElementById("productButtons");
+    const orderListEl = document.getElementById("orderList");
+
+    PRODUCTS.forEach((name) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "product-button";
+      btn.textContent = name;
+      btn.addEventListener("click", () => addOrder(name));
+      productButtonsEl.appendChild(btn);
+    });
+
+    watchOrders((orders) => {
+      renderOrders(orderListEl, orders, "取り消し", cancelOrder);
+    });
+  </script>
+</body>
+</html>

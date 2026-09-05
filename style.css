@@ -1,0 +1,195 @@
+:root {
+  --bg: #f6f5f1;
+  --ink: #2b2b28;
+  --sub-ink: #8a8578;
+  --card-bg: #ffffff;
+  --border: #ddd8cc;
+  --order-accent: #3d5a80;
+  --order-accent-dark: #2c4360;
+  --kitchen-accent: #386641;
+  --kitchen-accent-bg: #e7f0e4;
+  --oldest-highlight: #bc6c25;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic Medium", "Noto Sans JP", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.section-title {
+  font-size: 1rem;
+  color: var(--sub-ink);
+  margin: 20px 0 10px;
+  font-weight: bold;
+}
+
+/* トップページ */
+.top-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 88vh;
+  gap: 36px;
+  text-align: center;
+}
+
+.top-page-title {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.top-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.top-link-button {
+  display: block;
+  padding: 26px 16px;
+  border-radius: 14px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+.top-link-order {
+  background: var(--order-accent);
+}
+
+.top-link-kitchen {
+  background: var(--kitchen-accent);
+}
+
+/* ヘッダー(注文画面・厨房画面 共通) */
+.page-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 4px;
+}
+
+.back-link {
+  text-decoration: none;
+  color: var(--sub-ink);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* 商品ボタン(注文画面) */
+.product-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 16px 0 8px;
+}
+
+.product-button {
+  padding: 24px 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background: var(--order-accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.product-button:active {
+  background: var(--order-accent-dark);
+}
+
+/* 注文カード一覧(注文画面・厨房画面で共通) */
+.order-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-height: 60px;
+}
+
+.empty-message {
+  color: var(--sub-ink);
+}
+
+.order-card {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 148px;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.order-card-oldest {
+  border-color: var(--oldest-highlight);
+  border-width: 3px;
+}
+
+.order-card-number {
+  font-size: 0.75rem;
+  color: var(--sub-ink);
+}
+
+.order-card-name {
+  font-size: 1.15rem;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+.order-card-time {
+  font-size: 0.75rem;
+  color: var(--sub-ink);
+}
+
+.order-card-button-label {
+  margin-top: 4px;
+  text-align: center;
+  padding: 9px 4px;
+  border-radius: 8px;
+  background: #f0efe9;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.order-list-kitchen .order-card-button-label {
+  background: var(--kitchen-accent-bg);
+  color: var(--kitchen-accent);
+}
+
+/* 完成数カウント表示ページ */
+.count-display {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 48px 0 8px;
+}
+
+.count-label {
+  text-align: center;
+  color: var(--sub-ink);
+}
